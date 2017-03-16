@@ -6,8 +6,12 @@ angular.module("myApp").controller("signup", function($scope, $rootScope, $locat
 		// 	password : $scope.password,
 		// 	email : $scope.email
 		// };
-			
-		$rootScope.user = $scope.register;
-		$location.path("/login");
+		
+		if($scope.signupForm.$valid){
+			$rootScope.user = $scope.register;
+			$location.url("/login");
+		}else{
+			$scope.submitSignup = true;
+		}
 	}
 });

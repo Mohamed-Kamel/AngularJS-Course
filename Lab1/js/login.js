@@ -1,12 +1,14 @@
-angular.module("myApp").controller("login", function($scope, $rootScope, $location){
+angular.module("myApp")
+
+.controller("login", function($scope, $rootScope, $location){
 
 	$scope.login = function(){
 		
 		if($scope.username == $rootScope.user.username && $scope.password == $rootScope.user.password){
-			$location.path("/profile");
+			$location.url("/home");
 		}else{
 			
-			console.log("Error login");
+			$scope.loginError = true;
 		}
 	}
 });

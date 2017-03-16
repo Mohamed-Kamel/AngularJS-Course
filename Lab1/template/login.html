@@ -1,8 +1,22 @@
-Login
+<h1 style="text-align: center;">Login</h1>
 
+<div class="col-xs-9">
+	<form ng-submit="login()" class="col-xs-offset-5">
+		
+		
+		<div class="form-group">
+			<label for="username" class="label-control">Username</label>
+		  	<input type="text" id="username" name="username" class="form-control" ng-model="username">
+		</div>
 
-<form action="">
-	Username : <input type="text" name="username" ng-model="username">
-	Password : <input type="password" name="password" ng-model="password">
-	<button type="button" ng-click="login()">Login</button>
-</form>
+		<div class="form-group">
+			<label for="password" class="label-control">Password</label>
+			<input type="password" id="password" name="password" class="form-control" ng-model="password">
+		</div>
+		
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Login</button>
+			<p ng-if="loginError" class="bg-danger text-danger">Invalid username Or Password</p>
+		</div>
+	</form>
+</div>

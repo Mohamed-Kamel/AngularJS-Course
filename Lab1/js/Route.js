@@ -1,4 +1,5 @@
 angular.module("myApp")
+
 .config(function($routeProvider){
 	
 	$routeProvider
@@ -28,4 +29,14 @@ angular.module("myApp")
 		controller : "signup"
 		
 	})
+
+
+	.when("/home", {
+
+		templateUrl : "./template/home.html",
+		controller : "home"
+
+	})
+
+	
 });

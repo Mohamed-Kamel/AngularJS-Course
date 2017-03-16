@@ -1,9 +1,37 @@
-Signup
 
 
-<form action="#!/login">
-	Username : <input type="text" name="username" ng-model="register.username">
-	Password : <input type="password" name="password" ng-model="register.password">
-	Email : <input type="text" name="email" ng-model="register.email">
-	<button type="button" ng-click="signup()">Sign Up</button>
-</form>
+
+<div class="col-xs-offset-3 col-xs-6">
+	<h1 style="text-align: center;">Signup</h1>
+	<hr/>
+	<form name="signupForm" novalidate ng-submit="submitted=true;signup()">
+		
+		<div class="form-group" >
+			<label for="username" class="label-control">Username</label>
+			<input type="text" required name="username" placeholder="Username" id="username" class="form-control" ng-model="register.username">
+			<p ng-if="signupForm.username.$error.required && submitted" class="bg-danger text-danger">Username is required </p>
+		</div>
+
+		<div class="form-group">
+			<label for="password" class="label-control">Password</label>
+
+			<input type="password" required name="password" placeholder="Password" id="password" class="form-control" ng-model="register.password">
+			<p ng-if="signupForm.password.$error.required && submitted" class="bg-danger text-danger">Password is required </p>
+		</div>
+		
+		<div class="form-group">
+			<label for="email" class="label-control">Email</label>
+			<input type="email" required name="email" id="email" placeholder="Email" ng-model="register.email" class="form-control">
+			<p ng-if="signupForm.email.$error.required && submitted" class="bg-danger text-danger">Email is required </p>
+			<p ng-if="signupForm.email.$error.email && submitted" class="bg-danger text-danger">Enter a valid Email</p>
+		</div>
+		
+		<div class="form-group col-xs-offset-5">
+			<button type="submit" class="btn btn-primary" >Sign Up</button>
+		</div>
+		<div class="bg-danger text-danger">
+		<p ng-if="submitSignup" >Invalid infromation submitted</p>
+		</div>
+	</form>
+
+</div>
